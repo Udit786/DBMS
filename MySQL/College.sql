@@ -1,0 +1,47 @@
+CREATE DATABASE College;
+USE College;
+CREATE TABLE Courses(
+Course_Name varchar(30),
+Course_Code varchar(6),
+Sem_No int,
+Credits int,
+Syllabus varchar(100),
+Duration int,
+Students_enrolled int,
+PRIMARY KEY(Course_Code)
+);
+CREATE TABLE Student(
+UID bigint,
+Full_Name varchar(50),
+Mothers_Name varchar(20),
+Fathers_Name varchar(20),
+Gender varchar(10),
+Phone_No bigint,
+Address varchar(200),
+personal_emailid varchar(50),
+DOB Date,
+Age int,
+Caste varchar(20),
+Blood_group varchar(3),
+Fees bigint,
+Fees_Status varchar(10),
+Attendance decimal(5,2),
+CGPA decimal(5,2),
+Year_of_Graduation int,
+Branch varchar(20),
+college_emailid varchar(30),
+college_password varchar(30),
+Course1 varchar(6),
+Course2 varchar(6),
+Course3 varchar(6),
+Course4 varchar(6),
+Course5 varchar(6),
+Course6 varchar(6),
+PRIMARY KEY (UID),
+Foreign Key (Course1) REFERENCES Courses(Course_Code),
+Foreign Key (Course2) REFERENCES Courses(Course_Code),
+Foreign Key (Course3) REFERENCES Courses(Course_Code),
+Foreign Key (Course4) REFERENCES Courses(Course_Code),
+Foreign Key (Course5) REFERENCES Courses(Course_Code),
+Foreign Key (Course6) REFERENCES Courses(Course_Code)
+);
