@@ -28,6 +28,7 @@ Branch varchar(20),
 college_emailid varchar(30),
 college_password varchar(30),
 PRIMARY KEY (UID)
+FOREIGN KEY (Branch) REFERENCES Department(Dept_Name);
 );
 CREATE TABLE Department(
 Dept_Name varchar(20),
@@ -74,7 +75,7 @@ INSERT INTO Department VALUES("IT", 12.20, 4, "Coding Club");
 INSERT INTO Department VALUES("Electronics", 10.4, 5, "ASCES");
 INSERT INTO Student VALUES(2021300092, "Vineet Parmar", "Falguni", "Jyotindra", 8169343921, "Kandivali", '2003-12-08', 18, 172000, "Paid", 85.67, 9.57, 2025, "Computer Engineering", "vineet.parmar@spit.ac.in", "abcdxyz");
 INSERT INTO Student VALUES(2021300103, "Omkar Rao", "Sakshee", "Udit", 9876543210, "Jogeshwari", '2003-12-05', 18, 172000, "Paid", 100, 10, 2025, "Computer Engineering", "omkar.rao@spit.ac.in", "abcdxyz");
-INSERT INTO Student VALUES(2021700022, "Anish Gade", "Deepika", "Onam", 9394586434, "Ulhasnagar", '2003-03-26', 18, 172000, "Not Paid", 75.67, 8.57, 2025, "Data Science", "anish.gade@spit.ac.in", "abcdxyz");
+INSERT INTO Student VALUES(2021700022, "Anish Gade", "Deepika", "Onam", 9394586434, "Ulhasnagar", '2003-03-26', 18, 172000, "Not Paid", 75.67, 8.57, 2025, "IT", "anish.gade@spit.ac.in", "abcdxyz");
 INSERT INTO Staff VALUES("RD", "Rita Das", "ABC", "XYZ", 2983463292, "Mumbai", 40, '1992-08-29', "rita.das@spit.ac.in", 1800000, "PhD", 20, 99, "IT", "CS103");
 INSERT INTO Staff VALUES("PJ", "Prajakta Jadhav", "ABC", "XYZ", 2983463292, "Mumbai", 28, '1992-08-29', "prajakta.jadhav@spit.ac.in", 800000, "M.Tech", 5, 94, "Computer Engineering", "CS107");
 INSERT INTO Staff VALUES("NR", "Natasha Raul", "ABC", "XYZ", 2983463292, "Mumbai", 36, '1992-08-29', "natasha.raul@spit.ac.in", 1500000, "PhD", 20, 99, "Computer Engineering", "CS203");
