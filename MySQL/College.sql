@@ -15,14 +15,10 @@ UID bigint,
 Full_Name varchar(50),
 Mothers_Name varchar(20),
 Fathers_Name varchar(20),
-Gender varchar(10),
 Phone_No bigint,
 Address varchar(200),
-personal_emailid varchar(50),
 DOB Date,
 Age int,
-Caste varchar(20),
-Blood_group varchar(3),
 Fees bigint,
 Fees_Status varchar(10),
 Attendance decimal(5,2),
@@ -31,17 +27,63 @@ Year_of_Graduation int,
 Branch varchar(20),
 college_emailid varchar(30),
 college_password varchar(30),
-Course1 varchar(6),
-Course2 varchar(6),
-Course3 varchar(6),
-Course4 varchar(6),
-Course5 varchar(6),
-Course6 varchar(6),
-PRIMARY KEY (UID),
-Foreign Key (Course1) REFERENCES Courses(Course_Code),
-Foreign Key (Course2) REFERENCES Courses(Course_Code),
-Foreign Key (Course3) REFERENCES Courses(Course_Code),
-Foreign Key (Course4) REFERENCES Courses(Course_Code),
-Foreign Key (Course5) REFERENCES Courses(Course_Code),
-Foreign Key (Course6) REFERENCES Courses(Course_Code)
+PRIMARY KEY (UID)
 );
+CREATE TABLE Department(
+Dept_Name varchar(20),
+Avg_Package decimal(5,2),
+Floor_Occupied int,
+SubCommittees varchar(50),
+PRIMARY KEY (Dept_Name)
+);
+CREATE TABLE Staff(
+Teacher_Code varchar(5),
+Full_Name varchar(50),
+Mothers_Name varchar(20),
+Fathers_Name varchar(20),
+Phone_Number bigint,
+Address varchar(100),
+Age int,
+DOB Date,
+email varchar(30),
+Salary int,
+Qualification varchar(20),
+Experience int,
+Attendance decimal(5,2),
+Dept_Name varchar(20),
+Course_Code varchar(6),
+PRIMARY KEY (Teacher_Code),
+FOREIGN KEY (Dept_Name) REFERENCES Department(Dept_Name),
+FOREIGN KEY (Course_Code) REFERENCES Courses(Course_Code)
+);
+CREATE TABLE TakesCourse(
+UID bigint,
+Course_Code varchar(6),
+FOREIGN KEY (UID) REFERENCES Student(UID),
+FOREIGN KEY (Course_Code) REFERENCES Courses(Course_Code)
+);
+SELECT * FROM Student;
+SELECT * FROM Staff;
+SELECT * FROM Courses;
+SELECT * FROM Department;
+INSERT INTO Courses VALUES("PSOOP","CS103",2,4,"Java",3, 240);
+INSERT INTO Courses VALUES("ECL","CS107",1,4,"Integration, Calculus", 3, 440);
+INSERT INTO Courses VALUES("DS", "CS203", 3, 4, "Data Structures", 4, 300);
+INSERT INTO Department VALUES("Computer Engineering",15.72,6,"CSI, FACE");
+INSERT INTO Department VALUES("IT", 12.20, 4, "Coding Club");
+INSERT INTO Department VALUES("Electronics", 10.4, 5, "ASCES");
+INSERT INTO Student VALUES(2021300092, "Vineet Parmar", "Falguni", "Jyotindra", 8169343921, "Kandivali", '2003-12-08', 18, 172000, "Paid", 85.67, 9.57, 2025, "Computer Engineering", "vineet.parmar@spit.ac.in", "abcdxyz");
+INSERT INTO Student VALUES(2021300103, "Omkar Rao", "Sakshee", "Udit", 9876543210, "Jogeshwari", '2003-12-05', 18, 172000, "Paid", 100, 10, 2025, "Computer Engineering", "omkar.rao@spit.ac.in", "abcdxyz");
+INSERT INTO Student VALUES(2021700022, "Anish Gade", "Deepika", "Onam", 9394586434, "Ulhasnagar", '2003-03-26', 18, 172000, "Not Paid", 75.67, 8.57, 2025, "Data Science", "anish.gade@spit.ac.in", "abcdxyz");
+INSERT INTO Staff VALUES("RD", "Rita Das", "ABC", "XYZ", 2983463292, "Mumbai", 40, '1992-08-29', "rita.das@spit.ac.in", 1800000, "PhD", 20, 99, "IT", "CS103");
+INSERT INTO Staff VALUES("PJ", "Prajakta Jadhav", "ABC", "XYZ", 2983463292, "Mumbai", 28, '1992-08-29', "prajakta.jadhav@spit.ac.in", 800000, "M.Tech", 5, 94, "Computer Engineering", "CS107");
+INSERT INTO Staff VALUES("NR", "Natasha Raul", "ABC", "XYZ", 2983463292, "Mumbai", 36, '1992-08-29', "natasha.raul@spit.ac.in", 1500000, "PhD", 20, 99, "Computer Engineering", "CS203");
+INSERT INTO TakesCourse VALUES (2021300092, "CS103");
+INSERT INTO TakesCourse VALUES (2021300092, "CS107");
+INSERT INTO TakesCourse VALUES (2021300092, "CS203");
+INSERT INTO TakesCourse VALUES (2021300103, "CS103");
+INSERT INTO TakesCourse VALUES (2021300103, "CS107");
+INSERT INTO TakesCourse VALUES (2021300103, "CS203");
+INSERT INTO TakesCourse VALUES (2021700022, "CS103");
+INSERT INTO TakesCourse VALUES (2021700022, "CS107");
+INSERT INTO TakesCourse VALUES (2021700022, "CS203");
