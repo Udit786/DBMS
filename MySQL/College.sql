@@ -27,8 +27,8 @@ Year_of_Graduation int,
 Branch varchar(20),
 college_emailid varchar(30),
 college_password varchar(30),
-PRIMARY KEY (UID)
-FOREIGN KEY (Branch) REFERENCES Department(Dept_Name);
+PRIMARY KEY (UID),
+FOREIGN KEY (Branch) REFERENCES Department(Dept_Name)
 );
 CREATE TABLE Department(
 Dept_Name varchar(20),
@@ -60,8 +60,14 @@ FOREIGN KEY (Course_Code) REFERENCES Courses(Course_Code)
 CREATE TABLE TakesCourse(
 UID bigint,
 Course_Code varchar(6),
+grades decimal(5,2),
 FOREIGN KEY (UID) REFERENCES Student(UID),
 FOREIGN KEY (Course_Code) REFERENCES Courses(Course_Code)
+);
+CREATE TABLE Admin(
+Aname varchar(20),
+Teacher_Code varchar(5),
+FOREIGN KEY (Teacher_Code) REFERENCES Staff(Teacher_Code)
 );
 SELECT * FROM Student;
 SELECT * FROM Staff;
@@ -88,3 +94,4 @@ INSERT INTO TakesCourse VALUES (2021300103, "CS203");
 INSERT INTO TakesCourse VALUES (2021700022, "CS103");
 INSERT INTO TakesCourse VALUES (2021700022, "CS107");
 INSERT INTO TakesCourse VALUES (2021700022, "CS203");
+INSERT INTO Admin VALUES ("Rita Das", "RD");
