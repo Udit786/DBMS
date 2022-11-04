@@ -1,0 +1,56 @@
+{% extends "Student.html" %}
+{% block title %}Courses{% endblock %}
+{% block content %}
+<!--
+<div>
+    <h1> COURSES</h1>
+        <p>
+            Course 1  Credits 1     Other Info
+            <br>
+            <br>
+            Course 2  Credits 2     Other Info
+            <br>
+            <br>
+            Course 3  Credits 3     Other Info
+        </p>
+</div>
+-->
+
+<div class="content align-items-center w-100 ">
+
+    <!-- Recent Sales Start -->
+    <div class="container-fluid pt-4 px-4 text-dark">
+        <div class="bg-light text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Course Details</h6>
+            </div>
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-dark">
+                            <th scope="col">Course Code</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">Sem No</th>
+                            <th scope="col">Total Credits</th>
+                            <th scope="col">Other Info</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cr in user.student_course %}
+                        <tr>
+                            <td>{{cr.takes_course.Course_Code}}</td> <!--maybe query using data found in course code-->
+                            <td>{{cr.takes_course.Course_Name}}</td>
+                            <td>{{cr.takes_course.Sem_No}}</td>
+                            <td>{{cr.takes_course.Credits}}</td>
+                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Recent Sales End -->
+</div>
+{% endblock %}
