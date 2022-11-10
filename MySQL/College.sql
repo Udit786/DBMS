@@ -28,7 +28,7 @@ Branch varchar(20),
 college_emailid varchar(30),
 college_password varchar(30),
 PRIMARY KEY (UID),
-FOREIGN KEY (Branch) REFERENCES Department(Dept_Name)
+FOREIGN KEY (Branch) REFERENCES department(Dept_Name)
 );
 CREATE TABLE department(
 Dept_Name varchar(20),
@@ -55,20 +55,20 @@ Attendance decimal(5,2),
 Dept_Name varchar(20),
 Course_Code varchar(6),
 PRIMARY KEY (Teacher_Code),
-FOREIGN KEY (Dept_Name) REFERENCES Department(Dept_Name),
-FOREIGN KEY (Course_Code) REFERENCES Courses(Course_Code)
+FOREIGN KEY (Dept_Name) REFERENCES department(Dept_Name),
+FOREIGN KEY (Course_Code) REFERENCES courses(Course_Code)
 );
 CREATE TABLE takes(
 UID bigint,
 Course_Code varchar(6),
 grades decimal(5,2),
 FOREIGN KEY (UID) REFERENCES Student(UID),
-FOREIGN KEY (Course_Code) REFERENCES Courses(Course_Code)
+FOREIGN KEY (Course_Code) REFERENCES courses(Course_Code)
 );
 CREATE TABLE admin(
 Aname varchar(20),
 Teacher_Code varchar(5),
-FOREIGN KEY (Teacher_Code) REFERENCES Staff(Teacher_Code)
+FOREIGN KEY (Teacher_Code) REFERENCES staff(Teacher_Code)
 );
 SELECT * FROM Student;
 SELECT * FROM Staff;
