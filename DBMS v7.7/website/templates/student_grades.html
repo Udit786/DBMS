@@ -1,0 +1,53 @@
+{% extends "Student.html" %}
+{% block title %}Grades{% endblock %}
+{% block content %}
+<!--
+<div>
+    <h1> Grades</h1>
+        <p >
+            Course 1: Grade 1 
+            <br>
+            <br>
+            Course 2: Grade 2
+            <br>
+            <br>            
+            Course 3: Grade 3 
+        </p>
+</div>
+-->
+
+
+<div class="content align-items-center w-100 ">
+
+    <!-- Recent Sales Start -->
+    <div class="container-fluid pt-4 px-4 text-dark">
+        <div class="bg-light text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Grades</h6>
+            </div>
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-dark">
+                            <th scope="col">Course Code</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">Grades</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cr in user.student_course %}
+                        <tr>
+                            <td>{{cr.Course_Code}}</td>
+                            <td>{{cr.takes_course.Course_Name}}</td>
+                            <td>{{cr.grades}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Recent Sales End -->
+</div>
+{% endblock %}
